@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WareForge - Warehouse Management, Simplified</title>
+    <link rel="stylesheet" href="Home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Animated background -->
+    <div class="data-grid"></div>
+    <div class="data-particles"></div>
+    <div class="vignette"></div>
+    <div class="page-scanline"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <span class="access-corner tl"></span>
+        <span class="access-corner tr"></span>
+        <span class="access-corner bl"></span>
+        <span class="access-corner br"></span>
+        <div class="nav-brand">
+            <span class="access-live-dot"></span>
+            WARE<span class="accent">|</span>FORGE
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home" class="nav-link"><span class="nav-link-dot access-live-dot"></span>Home</a>
+            <a href="#about" class="nav-link"><span class="nav-link-dot access-live-dot"></span>About</a>
+            <a href="#tour" class="nav-link"><span class="nav-link-dot access-live-dot"></span>Tour</a>
+            <a href="#skills" class="nav-link"><span class="nav-link-dot access-live-dot"></span>Zones</a>
+            <a href="#projects" class="nav-link"><span class="nav-link-dot access-live-dot"></span>Features</a>
+            <a href="#contact" class="nav-link"><span class="nav-link-dot access-live-dot"></span>Under the Hood</a>
+            <a href="#live-analysis" class="nav-link"><span class="nav-link-dot access-live-dot"></span>Live Analysis</a>
+            <a href="#access" class="nav-link"><span class="nav-link-dot access-live-dot"></span>Get Access</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+        </button>
+    </nav>
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- Main container -->
+    <div class="scene-container">
+
+        <!-- Hero section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-tag">&lt;Warehouse Management System /&gt;</div>
+                <h1 class="hero-name">
+                    <span class="name-line">YOUR WAREHOUSE.</span>
+                    <span class="name-line highlight">YOUR RULES.</span>
+                </h1>
+                <p class="hero-tagline">Create warehouses that match your real floor plan, organize them into flexible
+                    zones, and keep complete control of your inventory from one place.</p>
+                <div class="hero-stats">
+                    <div class="stat-item" data-count="10">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Warehouses You Can Manage</span>
+                    </div>
+                    <div class="stat-item" data-count="100">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Zones You Can Configure</span>
+                    </div>
+                    <div class="stat-item" data-count="10000">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Items You Can Track</span>
+                    </div>
+                </div>
+                <button class="cta-button" onclick="trackClick('explore_features'); scrollToSection('projects')">
+                    <span>Explore Features</span>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+            <div class="hero-visual" id="heroVisual">
+                <!-- The floor-plan SVG (assets/hero-floor-plan.svg) is fetched
+                     and injected here by loadHeroVisual() in script.js, so its
+                     internal classes/ids can still be styled by styles.css and
+                     wired up by initHeroVisual(). -->
+            </div>
+        </section>
+
+        <!-- About section -->
+        <section id="about" class="about-section">
+            <h2 class="section-title">
+                <span class="title-number">01.</span>
+                <span class="title-text">About WareForge</span>
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">A flexible warehouse management system built around the way your warehouse
+                        actually works.</p>
+                    <p>WareForge lets you create and manage multiple warehouses without being restricted to a fixed
+                        layout. Define the length and breadth of each warehouse, divide the space into custom zones, and
+                        organize inventory exactly where it belongs. Each item can have its own quantity and minimum
+                        stock threshold, making it easier to understand what is available and what needs attention. You
+                        can also switch to a spreadsheet-style Table View to browse, search, and filter everything —
+                        scoped to one warehouse or all of them — and import or export your data through Excel.</p>
+                    <div class="expertise-grid">
+                        <div class="expertise-item hud-panel">
+                            <div class="expertise-icon">📐</div>
+                            <div class="expertise-title">Dynamic Warehouse Sizing</div>
+                            <div class="expertise-desc">Update a warehouse's length and breadth any time your floor
+                                plan changes, and existing zones adjust to fit — without losing anything already
+                                stored</div>
+                        </div>
+                        <div class="expertise-item hud-panel">
+                            <div class="expertise-icon">🗂️</div>
+                            <div class="expertise-title">Custom Zones</div>
+                            <div class="expertise-desc">Draw zones inside the grid and name them the way your floor
+                                actually works — receiving, cold storage, overflow</div>
+                        </div>
+                        <div class="expertise-item hud-panel">
+                            <div class="expertise-icon">📦</div>
+                            <div class="expertise-title">Quantity & Minimum Stock</div>
+                            <div class="expertise-desc">Set a required minimum per item and see immediately which zones
+                                are running low before it becomes a problem</div>
+                        </div>
+                        <div class="expertise-item hud-panel">
+                            <div class="expertise-icon">📊</div>
+                            <div class="expertise-title">Table View & Excel Sync</div>
+                            <div class="expertise-desc">Switch to a sortable table of every item, then import or export
+                                the whole warehouse as an Excel file in one click</div>
+                        </div>
+                        <div class="expertise-item hud-panel">
+                            <div class="expertise-icon">🔎</div>
+                            <div class="expertise-title">Search & Filtering</div>
+                            <div class="expertise-desc">Find any item by name instantly within the warehouse you're
+                                working in, or switch the Table View's scope to "All locations" to search and filter
+                                everything at once.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Tour section -->
+        <section id="tour" class="tour-section">
+            <h2 class="section-title">
+                <span class="title-number">02.</span>
+                <span class="title-text">See WareForge in Action</span>
+            </h2>
+            <p class="tour-intro">Two screens, everything you need: shape the floor, then track what's on it.</p>
+            <div class="tour-grid">
+                <div class="tour-item">
+                    <div class="browser-frame hud-panel">
+                        <div class="browser-bar">
+                            <span class="browser-dot"></span>
+                            <span class="browser-dot"></span>
+                            <span class="browser-dot"></span>
+                            <span class="browser-url">wareforge.app/floor-plan</span>
+                        </div>
+                        <img src="assets/floor-plan-designer.png" alt="WareForge floor plan designer showing a warehouse grid, length and breadth inputs, and zone tools" loading="lazy" class="tour-image" onclick="openLightbox(this)">
+                    </div>
+                    <div class="tour-caption">
+                        <span class="tour-step">Step 01</span>
+                        <h3>Draw the floor plan</h3>
+                        <p>Set the length and breadth of a warehouse, then draw, resize, and reposition zones directly
+                            on the grid — receiving, cold storage, overflow, whatever your floor actually looks like.
+                        </p>
+                    </div>
+                </div>
+                <div class="tour-item reverse">
+                    <div class="browser-frame hud-panel">
+                        <div class="browser-bar">
+                            <span class="browser-dot"></span>
+                            <span class="browser-dot"></span>
+                            <span class="browser-dot"></span>
+                            <span class="browser-url">wareforge.app/stock-table</span>
+                        </div>
+                        <img src="assets/stock-table.png" alt="WareForge stock table showing Items, Zones, Locations and Low Stock tabs with a form to add an item" loading="lazy" class="tour-image" onclick="openLightbox(this)">
+                    </div>
+                    <div class="tour-caption">
+                        <span class="tour-step">Step 02</span>
+                        <h3>Track what's inside</h3>
+                        <p>Open the Stock Table to browse Items, Zones, and Locations, filter by warehouse, search for
+                            anything, and add an item with its quantity and minimum stock in seconds. The Low Stock tab
+                            flags what needs attention first.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills section -->
+        <section id="skills" class="skills-section">
+            <h2 class="section-title">
+                <span class="title-number">03.</span>
+                <span class="title-text">How WareForge Organizes Your Warehouse</span>
+            </h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3 class="category-title">Warehouse & Zone Visibility</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card hud-panel" data-skill="62">
+                            <div class="skill-header">
+                                <span class="skill-name">Receiving & Dispatch</span>
+                                <span class="skill-percentage">100%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" style="--skill-level: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card hud-panel" data-skill="88">
+                            <div class="skill-header">
+                                <span class="skill-name">Storage Areas</span>
+                                <span class="skill-percentage">100%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" style="--skill-level: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card hud-panel" data-skill="45">
+                            <div class="skill-header">
+                                <span class="skill-name">Bulk Inventory</span>
+                                <span class="skill-percentage">100%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" style="--skill-level: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card hud-panel" data-skill="30">
+                            <div class="skill-header">
+                                <span class="skill-name">Overflow Areas</span>
+                                <span class="skill-percentage">100%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" style="--skill-level: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">Inventory Control</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card hud-panel" data-skill="78">
+                            <div class="skill-header">
+                                <span class="skill-name">Inventory Quantity</span>
+                                <span class="skill-percentage">100%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" style="--skill-level: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card hud-panel" data-skill="55">
+                            <div class="skill-header">
+                                <span class="skill-name">Minimum Stock Threshold</span>
+                                <span class="skill-percentage">100%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" style="--skill-level: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card hud-panel" data-skill="67">
+                            <div class="skill-header">
+                                <span class="skill-name">Item Search</span>
+                                <span class="skill-percentage">100%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" style="--skill-level: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card hud-panel" data-skill="18">
+                            <div class="skill-header">
+                                <span class="skill-name">Low-Stock Visibility</span>
+                                <span class="skill-percentage">100%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" style="--skill-level: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects section -->
+        <section id="projects" class="projects-section">
+            <h2 class="section-title">
+                <span class="title-number">04.</span>
+                <span class="title-text">Core Features</span>
+            </h2>
+            <div class="projects-grid" id="projectsGrid">
+            </div>
+        </section>
+
+        <!-- Contact section -->
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">
+                <span class="title-number">05.</span>
+                <span class="title-text">Under the Hood</span>
+            </h2>
+            <div class="contact-content">
+
+                <!-- How access & sync actually work, not fabricated
+                     "live" metrics — see the cards below. -->
+                <div class="contact-methods" style="margin-top: 3rem;">
+
+                    <div class="contact-card hud-panel">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Access</div>
+                            <div class="contact-value">Admin-Granted Links, No Self-Signup</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card hud-panel">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 21V3h18v18" />
+                                <path d="M7 21v-6h4v6M13 21V9h4v12" />
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Warehouses</div>
+                            <div class="contact-value">Unlimited, Each With Its Own Layout</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card hud-panel">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <path d="M3 9h18M9 3v18" />
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Zones</div>
+                            <div class="contact-value">Draw, Resize & Reposition Freely</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card hud-panel">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M2 12h20" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Stock</div>
+                            <div class="contact-value">Quantity + Minimum Threshold, Per Item</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card hud-panel">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                <line x1="12" y1="22.08" x2="12" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Backups</div>
+                            <div class="contact-value">Automatic Daily, Plus On-Demand</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card hud-panel">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.3 2.9L1.8 17.5A2 2 0 0 0 3.5 20.5h17a2 2 0 0 0 1.7-3L13.7 2.9a2 2 0 0 0-3.4 0z" />
+                                <line x1="12" y1="9" x2="12" y2="13" />
+                                <line x1="12" y1="17" x2="12.01" y2="17" />
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Data Sync</div>
+                            <div class="contact-value">Live Across Every Teammate's Screen</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Analysis: real, server-tracked numbers — not fabricated.
+             site_public_stats() (see supabase-schema.sql) aggregates two
+             new write-only tables (site_visits/site_clicks, populated by
+             netlify/functions/track-event.js) with counts already sitting
+             in the app's own members/warehouses/zones/items tables.
+             Numbers start at "–" and fill in once the RPC resolves; if it
+             fails (e.g. the migration hasn't been run yet), they stay as
+             "–" instead of showing something misleading. -->
+        <section id="live-analysis" class="contact-section">
+            <h2 class="section-title">
+                <span class="title-number">06.</span>
+                <span class="title-text">Live Analysis</span>
+            </h2>
+            <div class="contact-content">
+                <p class="contact-text">Real numbers, pulled straight from the database behind WareForge — not
+                    placeholders.</p>
+
+                <div class="contact-methods" style="margin-top: 3rem;" id="liveStatsGrid">
+
+                    <div class="contact-card hud-panel">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Page Visits</div>
+                            <div class="contact-value">
+                                <span class="stat-live-number" data-stat-key="totalVisits">–</span> Total Visits
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card hud-panel">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
+                                <path d="M13 13l6 6" />
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Engagement</div>
+                            <div class="contact-value">
+                                <span class="stat-live-number" data-stat-key="totalClicks">–</span> CTA Clicks
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card hud-panel">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Access</div>
+                            <div class="contact-value">
+                                <span class="stat-live-number" data-stat-key="authorizedUsers">–</span> Authorized
+                                Users
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card hud-panel">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 21V3h18v18" />
+                                <path d="M7 21v-6h4v6M13 21V9h4v12" />
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Warehouses</div>
+                            <div class="contact-value">
+                                <span class="stat-live-number" data-stat-key="activeWarehouses">–</span> Active
+                                Warehouses
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card hud-panel">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <path d="M3 9h18M9 3v18" />
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Zones</div>
+                            <div class="contact-value">
+                                <span class="stat-live-number" data-stat-key="configuredZones">–</span> Configured
+                                Zones
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card hud-panel">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M2 12h20" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Stock</div>
+                            <div class="contact-value">
+                                <span class="stat-live-number" data-stat-key="trackedItems">–</span> Items Tracked
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="pricing-note" id="liveStatsNote" style="margin-top: 1.5rem; opacity: 0.7;"></p>
+            </div>
+        </section>
+
+        <section id="access" class="contact-section">
+            <h2 class="section-title">
+                <span class="title-number">07.</span>
+                <span class="title-text">Get Access</span>
+            </h2>
+
+            <div class="contact-content">
+                <p class="contact-text">WareForge brings warehouse layout and inventory management together in one
+                    workspace. Create your warehouse, define its zones, add your inventory, and keep the entire
+                    structure organized as your operation changes.</p>
+                <div class="access-card" id="accessCard">
+                    <span class="access-corner tl"></span>
+                    <span class="access-corner tr"></span>
+                    <span class="access-corner bl"></span>
+                    <span class="access-corner br"></span>
+                    <div class="access-scanline"></div>
+                    <div class="access-grid-bg"></div>
+
+                    <div class="access-avatar-wrap">
+                        <span class="access-ring"></span>
+                        <span class="access-ring ring-2"></span>
+                        <div class="access-avatar">MG</div>
+                        <span class="access-status-dot" title="Available for new access requests"></span>
+                    </div>
+
+                    <div class="access-body">
+                        <span class="access-eyebrow">
+                            <span class="access-live-dot"></span>
+                            Wanna access? Connect with me
+                        </span>
+                        <h3 class="access-title">Mohit <span class="access-title-sep">—</span> Builder of WareForge</h3>
+                        <p class="access-desc">This app isn't public yet. If you'd like a login, want to try it for your
+                            own warehouse, or just want to talk through the idea, reach out directly and I'll get you
+                            set up.</p>
+                        <div class="access-actions">
+                            <a href="mailto:gargmohit0104@gmail.com?subject=Access%20to%20WareForge" class="access-btn primary" onclick="trackClick('get_access_email')">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                <span>gargmohit0104@gmail.com</span>
+                            </a>
+                            <button type="button" class="access-btn ghost" onclick="copyEmail(this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" />
+                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                                </svg>
+                                <span>Copy email</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="access-readout">
+                        <span class="access-readout-label">STATUS</span>
+                        <span class="access-readout-value" id="accessStatusText">● ONLINE</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>WareForge — Warehouse Management, Simplified</p>
+            <p class="footer-year">© 2026</p>
+        </footer>
+    </div>
+
+    <!-- Feature Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Image Lightbox (tour screenshots) -->
+    <div class="modal" id="imageLightbox">
+        <div class="modal-overlay" onclick="closeLightbox()"></div>
+        <div class="lightbox-content">
+            <button class="modal-close" onclick="closeLightbox()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <img id="lightboxImage" src="" alt="">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="Home.js"></script>
+</body>
+
+</html>
