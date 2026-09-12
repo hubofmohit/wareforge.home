@@ -220,7 +220,16 @@ body {
    Mobile keeps the edge-to-edge bar + hamburger, untouched below. */
 @media (min-width: 769px) {
     .navbar {
-        position: sticky;
+        /* Matches the mobile rule below: position:fixed, not sticky or
+           relative. The hero section's own 120px top padding (see
+           .hero-section) is built specifically to leave room for a
+           floating nav sitting on top of the page from the very first
+           frame — sticky only reserves that space once scrolled past
+           its natural position, and relative reserves it AND pushes
+           the hero down further on top of that, both mismatched with
+           the hero's built-in spacing. Fixed is the one that was
+           already proven to work correctly on mobile. */
+        position: fixed;
         top: 18px;
         z-index: 100;
         left: 50%;
