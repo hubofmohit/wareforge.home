@@ -1218,12 +1218,11 @@ section {
 .metric-value {
     display: block;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--project-color);
     margin-bottom: 0.3rem;
     overflow-wrap: break-word;
-    word-break: break-word;
 }
 
 .metric-label {
