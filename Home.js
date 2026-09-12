@@ -931,12 +931,27 @@ function trackVisit() {
     if (!STATS_CONFIGURED) return;
     try {
         if (sessionStorage.getItem('wf_visit_tracked')) return;
-        sessionStorage.setItem('wf_visit_tracked', '1');
     } catch (e) {
         // sessionStorage unavailable (e.g. private browsing) — fine to
-        // just track every load in that case, nothing to fall back to.
+        // just track every load in that case, nothing to guard with.
     }
-    sendTrackingBeacon({ type: 'visit', path: location.pathname || '/' });
+    // Uses fetch (not sendBeacon) here specifically because we need to
+    // know the request actually succeeded before marking this session
+    // as tracked. Setting the flag unconditionally beforehand meant a
+    // single failed attempt (bad deploy, missing env var, etc.) would
+    // silently block every reload in that tab from ever retrying —
+    // which is exactly what made this look "stuck at 0" during testing.
+    fetch('/api/track-event', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'visit', path: location.pathname || '/' })
+    }).then(function(res) {
+        if (res.ok) {
+            try { sessionStorage.setItem('wf_visit_tracked', '1'); } catch (e) {}
+        }
+    }).catch(function() {
+        // Left unset on purpose — see comment above.
+    });
 }
 
 // Called from the three real CTAs (Explore Features, the mailto link,
