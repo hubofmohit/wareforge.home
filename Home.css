@@ -1222,6 +1222,8 @@ section {
     font-weight: 700;
     color: var(--project-color);
     margin-bottom: 0.3rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .metric-label {
